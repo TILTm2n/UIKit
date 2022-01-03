@@ -14,6 +14,7 @@
 		A33A79212782EB6E007DF0A9 /* UIKitTraining.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A33A791F2782EB6E007DF0A9 /* UIKitTraining.xcdatamodeld */; };
 		A33A79232782EB6F007DF0A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33A79222782EB6F007DF0A9 /* Assets.xcassets */; };
 		A33A79262782EB6F007DF0A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A33A79242782EB6F007DF0A9 /* LaunchScreen.storyboard */; };
+		A33A792E27833A2F007DF0A9 /* EnemyID.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A33A792D27833A2F007DF0A9 /* EnemyID.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A33A79222782EB6F007DF0A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A33A79252782EB6F007DF0A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A33A79272782EB6F007DF0A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A33A792D27833A2F007DF0A9 /* EnemyID.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = EnemyID.mp3; path = ../../../../Downloads/EnemyID.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A33A791A2782EB6E007DF0A9 /* ViewController.swift */,
 				A33A791C2782EB6E007DF0A9 /* Main.storyboard */,
 				A33A79222782EB6F007DF0A9 /* Assets.xcassets */,
+				A33A792D27833A2F007DF0A9 /* EnemyID.mp3 */,
 				A33A79242782EB6F007DF0A9 /* LaunchScreen.storyboard */,
 				A33A79272782EB6F007DF0A9 /* Info.plist */,
 				A33A791F2782EB6E007DF0A9 /* UIKitTraining.xcdatamodeld */,
@@ -128,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33A792E27833A2F007DF0A9 /* EnemyID.mp3 in Resources */,
 				A33A79262782EB6F007DF0A9 /* LaunchScreen.storyboard in Resources */,
 				A33A79232782EB6F007DF0A9 /* Assets.xcassets in Resources */,
 				A33A791E2782EB6E007DF0A9 /* Main.storyboard in Resources */,

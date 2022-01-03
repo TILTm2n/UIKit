@@ -6,46 +6,50 @@
 //
 
 import UIKit
+import AVFoundation //фрэймворк для работы с аудио и видео
 
 class ViewController: UIViewController {
     
-    let picker = UIDatePicker() //необходим для выбора даты и времени
+    var player = AVAudioPlayer()
+    var slider = UISlider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        picker.center = self.view.center
+        self.slider.frame = CGRect(x: 0, y: 0, width: 200, height: 23)
+        self.slider.center = self.view.center
+        self.slider.minimumValue = 0.0
+        self.slider.maximumValue = 100.0
+        self.view.addSubview(slider)
         
-        self.view.addSubview(picker)
+        self.slider.addTarget(self, action: #selector(changeSlider(sender:)), for: .valueChanged)
         
-        picker.addTarget(self, action: #selector(datePickerChange(datePicker:)), for: .valueChanged)
-        
-        picker.datePickerMode = .date
-        
-        //для создания обратного отсчета
-        //picker.datePickerMode = .countDownTimer
-        //picker.countDownDuration = 2 * 60
-        
-        var oneYear = TimeInterval()
-        
-        oneYear = 365 * 24 * 60 * 60
-        
-        let todayDay = Date()
-        
-        let oneYearFromToday = todayDay.addingTimeInterval(oneYear)
-        let twoYearFromToday = todayDay.addingTimeInterval(2 * oneYear)
-        
-        picker.minimumDate = oneYearFromToday
-        picker.maximumDate = twoYearFromToday
+        do {
+            if let audioPath = Bundle.main.path(forResource: "EnemyID", ofType: ".mp3"){ //получаем путь в виде строки до файла с музыкой
+                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
+                self.slider.maximumValue = Float(player.duration)
+            }
+        } catch {
+            print("error")
+        }
         
         
         
     }
     
+    @IBAction func playButton(_ sender: Any) {
+        self.player.play()
+    }
+    
+    @IBAction func pauseButton(_ sender: Any) {
+        self.player.pause()
+    }
+    
+    
     @objc
-    func datePickerChange(datePicker: UIDatePicker){
-        if datePicker.isEqual(self.picker){
-            print("dateChange = ", datePicker.date)
+    func changeSlider(sender: UISlider){
+        if sender == slider{
+            self.player.currentTime = TimeInterval(sender.value)
         }
     }
 
