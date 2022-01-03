@@ -9,38 +9,46 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let picker = UIPickerView()
+    let picker = UIDatePicker() //необходим для выбора даты и времени
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         picker.center = self.view.center
         
-        picker.dataSource = self
-        picker.delegate = self
-        
         self.view.addSubview(picker)
         
-    }
-
-}
-
-extension ViewController: UIPickerViewDataSource{
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 100
-    }
-}
-
-extension ViewController: UIPickerViewDelegate{
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let result = "row \(row)"
+        picker.addTarget(self, action: #selector(datePickerChange(datePicker:)), for: .valueChanged)
         
-        return result
+        picker.datePickerMode = .date
+        
+        //для создания обратного отсчета
+        //picker.datePickerMode = .countDownTimer
+        //picker.countDownDuration = 2 * 60
+        
+        var oneYear = TimeInterval()
+        
+        oneYear = 365 * 24 * 60 * 60
+        
+        let todayDay = Date()
+        
+        let oneYearFromToday = todayDay.addingTimeInterval(oneYear)
+        let twoYearFromToday = todayDay.addingTimeInterval(2 * oneYear)
+        
+        picker.minimumDate = oneYearFromToday
+        picker.maximumDate = twoYearFromToday
+        
+        
+        
     }
+    
+    @objc
+    func datePickerChange(datePicker: UIDatePicker){
+        if datePicker.isEqual(self.picker){
+            print("dateChange = ", datePicker.date)
+        }
+    }
+
 }
+
 
