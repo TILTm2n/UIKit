@@ -10,46 +10,39 @@ import AVFoundation //фрэймворк для работы с аудио и в
 
 class ViewController: UIViewController {
     
-    var player = AVAudioPlayer()
-    var slider = UISlider()
+    var segmentControl = UISegmentedControl()
+    var imageView = UIImageView()
+    
+    var menuArray = ["one", "two", "three"]
+    var imageArray = [UIImage(named: "sunrise"),
+                      UIImage(named: "canada"),
+                      UIImage(named: "portret")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.slider.frame = CGRect(x: 0, y: 0, width: 200, height: 23)
-        self.slider.center = self.view.center
-        self.slider.minimumValue = 0.0
-        self.slider.maximumValue = 100.0
-        self.view.addSubview(slider)
+        //create imageView
+        self.imageView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        self.imageView.center = self.view.center
+        self.imageView.image = self.imageArray[0]
+        self.view.addSubview(self.imageView)
         
-        self.slider.addTarget(self, action: #selector(changeSlider(sender:)), for: .valueChanged)
+        //create segment
+        self.segmentControl = UISegmentedControl(items: self.menuArray)
+        self.segmentControl.frame = CGRect(x: 95, y: 530, width: 200, height: 30)
+        self.view.addSubview(self.segmentControl)
         
-        do {
-            if let audioPath = Bundle.main.path(forResource: "EnemyID", ofType: ".mp3"){ //получаем путь в виде строки до файла с музыкой
-                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
-                self.slider.maximumValue = Float(player.duration)
-            }
-        } catch {
-            print("error")
-        }
-        
-        
-        
-    }
-    
-    @IBAction func playButton(_ sender: Any) {
-        self.player.play()
-    }
-    
-    @IBAction func pauseButton(_ sender: Any) {
-        self.player.pause()
+        self.segmentControl.addTarget(self, action: #selector(changeSegment(target:)), for: .valueChanged)
     }
     
     
     @objc
-    func changeSlider(sender: UISlider){
-        if sender == slider{
-            self.player.currentTime = TimeInterval(sender.value)
+    func changeSegment(target: UISegmentedControl){
+        if target == segmentControl{
+            let segmentIndex = target.selectedSegmentIndex
+            self.imageView.image = self.imageArray[segmentIndex]
+            let pr = target.titleForSegment(at: segmentIndex)
+            print(pr ?? "")
         }
     }
 
