@@ -10,31 +10,44 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var navController = UINavigationController()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        //наш дефолтный контроллер представления
-        let viewController = ViewController()
+        let firstVC = ViewController()
+        let secondVC = SecondViewController()
+        //let thirdVC = ThirdViewController()
         
-        //создаем экземпляр контроллера навигации с корневым нашим контроллером в корне стэка контроллеров
-        self.navController = UINavigationController(rootViewController: viewController)
+        let firstNavController = UINavigationController(rootViewController: firstVC)
+        firstNavController.navigationBar.backgroundColor = .yellow
         
-        //цвет для панели навигации
-        self.navController.navigationBar.backgroundColor = .green
+        let secondNavController = UINavigationController(rootViewController: secondVC)
+        secondNavController.navigationBar.backgroundColor = .green
         
-        //создаем объект UIWindowScene, который будет управлять окнами, отображаемыми в этой сцене
-        if let ws = scene as? UIWindowScene{
-            //создаем окно UIWindow
-            self.window = UIWindow(windowScene: ws)
-            
-            //делаем контроллер навигации для этого окна корневым
-            self.window?.rootViewController = self.navController
-            
-            self.window?.backgroundColor = UIColor.white // результат этой операции совпадает с результатом применения цвета фона для главного view
-            
-            self.window?.makeKeyAndVisible()
-        }
+        let tabBarVC = UITabBarController()
+        tabBarVC.setViewControllers([firstNavController, secondNavController], animated: true)
+        tabBarVC.tabBar.backgroundColor = .white
+        
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        
+        self.window = UIWindow(windowScene: winScene)
+        self.window?.rootViewController = tabBarVC
+        self.window?.makeKeyAndVisible()
+        
+//        //наш дефолтный контроллер представления
+//        let viewController = ViewController()
+//        //создаем экземпляр контроллера навигации с корневым нашим контроллером в корне стэка контроллеров
+//        self.navController = UINavigationController(rootViewController: viewController)
+//        //цвет для панели навигации
+//        self.navController.navigationBar.backgroundColor = .green
+//        //создаем объект UIWindowScene, который будет управлять окнами, отображаемыми в этой сцене
+//        if let ws = scene as? UIWindowScene{
+//            //создаем окно UIWindow
+//            self.window = UIWindow(windowScene: ws)
+//            //делаем контроллер навигации для этого окна корневым
+//            self.window?.rootViewController = self.navController
+//            self.window?.backgroundColor = UIColor.white // результат этой операции совпадает с результатом применения цвета фона для главного view
+//            self.window?.makeKeyAndVisible()
+//        }
         
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.

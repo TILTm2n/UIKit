@@ -11,8 +11,16 @@ class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Second VC"
-        // Do any additional setup after loading the view.
+        
+        //self.title = "Second VC"
+        self.navigationItem.title = "Second VC"
+        self.view.backgroundColor = .yellow
+        
+        var tabBarItem = UITabBarItem()
+        tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        
+        self.tabBarItem = tabBarItem
+        
     }
     
     //автоматическое возвращение на предыдущий контроллер через 3 секунды
