@@ -15,10 +15,11 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        self.perform(#selector(goBack), with: nil, afterDelay: 3.0)
-    }
+    //автоматическое возвращение на предыдущий контроллер через 3 секунды
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        self.perform(#selector(goBack), with: nil, afterDelay: 3.0)
+//    }
     
     @objc
     func goBack(){
