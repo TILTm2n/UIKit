@@ -15,6 +15,7 @@
 		A33A79232782EB6F007DF0A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33A79222782EB6F007DF0A9 /* Assets.xcassets */; };
 		A33A79262782EB6F007DF0A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A33A79242782EB6F007DF0A9 /* LaunchScreen.storyboard */; };
 		A33A792E27833A2F007DF0A9 /* EnemyID.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A33A792D27833A2F007DF0A9 /* EnemyID.mp3 */; };
+		A3CE261F27845D960019EF18 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE261E27845D960019EF18 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A33A79252782EB6F007DF0A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A33A79272782EB6F007DF0A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A33A792D27833A2F007DF0A9 /* EnemyID.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = EnemyID.mp3; path = ../../../../Downloads/EnemyID.mp3; sourceTree = "<group>"; };
+		A3CE261E27845D960019EF18 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +62,9 @@
 		A33A79152782EB6E007DF0A9 /* UIKitTraining */ = {
 			isa = PBXGroup;
 			children = (
+				A3CE262027845DA10019EF18 /* Controllers */,
 				A33A79162782EB6E007DF0A9 /* AppDelegate.swift */,
 				A33A79182782EB6E007DF0A9 /* SceneDelegate.swift */,
-				A33A791A2782EB6E007DF0A9 /* ViewController.swift */,
 				A33A791C2782EB6E007DF0A9 /* Main.storyboard */,
 				A33A79222782EB6F007DF0A9 /* Assets.xcassets */,
 				A33A792D27833A2F007DF0A9 /* EnemyID.mp3 */,
@@ -71,6 +73,15 @@
 				A33A791F2782EB6E007DF0A9 /* UIKitTraining.xcdatamodeld */,
 			);
 			path = UIKitTraining;
+			sourceTree = "<group>";
+		};
+		A3CE262027845DA10019EF18 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3CE261E27845D960019EF18 /* SecondViewController.swift */,
+				A33A791A2782EB6E007DF0A9 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +159,7 @@
 				A33A79212782EB6E007DF0A9 /* UIKitTraining.xcdatamodeld in Sources */,
 				A33A791B2782EB6E007DF0A9 /* ViewController.swift in Sources */,
 				A33A79172782EB6E007DF0A9 /* AppDelegate.swift in Sources */,
+				A3CE261F27845D960019EF18 /* SecondViewController.swift in Sources */,
 				A33A79192782EB6E007DF0A9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

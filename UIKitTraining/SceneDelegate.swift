@@ -10,9 +10,32 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    var navController = UINavigationController()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        //наш дефолтный контроллер представления
+        let viewController = ViewController()
+        
+        //создаем экземпляр контроллера навигации с корневым нашим контроллером в корне стэка контроллеров
+        self.navController = UINavigationController(rootViewController: viewController)
+        
+        //цвет для панели навигации
+        self.navController.navigationBar.backgroundColor = .green
+        
+        //создаем объект UIWindowScene, который будет управлять окнами, отображаемыми в этой сцене
+        if let ws = scene as? UIWindowScene{
+            //создаем окно UIWindow
+            self.window = UIWindow(windowScene: ws)
+            
+            //делаем контроллер навигации для этого окна корневым
+            self.window?.rootViewController = self.navController
+            
+            self.window?.backgroundColor = UIColor.white // результат этой операции совпадает с результатом применения цвета фона для главного view
+            
+            self.window?.makeKeyAndVisible()
+        }
+        
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
