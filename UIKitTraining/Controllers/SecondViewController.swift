@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITextFieldDelegate {
-
-    var myTextField = UITextField()
+class SecondViewController: UIViewController{
+    
+    var myTextView = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,28 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         self.tabBarItem = tabBarItem
         
-        createTextField()
-        myTextField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTextView(param:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTextView(param:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        //центр событий и обработчики событий
-        NotificationCenter.default.addObserver(self, selector: #selector(textFieldTextDidChange(ncParam:)), name: UITextField.textDidChangeNotification, object: nil)
+        //растягиваем UITextView на все self.view(bounds) а не на UIWindow(это frame для UITextView)
+        myTextView = UITextView(frame: CGRect(x: 20, y: 100, width: self.view.bounds.size.width - 50, height: self.view.bounds.size.height/2))
         
+        myTextView.text = "Some text"
+        
+        //задаем отступы
+        myTextView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        myTextView.font = UIFont.systemFont(ofSize: 17)
+        myTextView.backgroundColor = UIColor.lightGray
+        
+        self.view.addSubview(myTextView)
+        
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        print("fjdfjajfn")
     }
     
     //автоматическое возвращение на предыдущий контроллер через 3 секунды
@@ -53,56 +69,31 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
 
     // MARK: - CreateUI
-    fileprivate func createTextField() {
-        let textFieldFrame = CGRect(x: 0, y: 0, width: 200, height: 31)
-        myTextField = UITextField(frame: textFieldFrame)
-        myTextField.borderStyle = .roundedRect
-        myTextField.contentVerticalAlignment = .center
-        myTextField.contentHorizontalAlignment = .center
-        myTextField.placeholder = "I swift deweloper"
-        myTextField.center = self.view.center
-        self.view.addSubview(myTextField)
-    }
     
     
-    // MARK: - UITextFieldDelegate
-//    //при выделении поля определяет редактируемо оно или нет
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        print("это поле можно редактировать")
-//        return true
-//    }
-//    //срабатывает когда начался ввод
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        print("редактирование началось")
-//    }
-//
-//    //срабатывает когда покидаем поле
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        print("редактирование закончилось")
-//        return true
-//    }
-//
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        print(string)
-//        return true
-//    }
-//
-//    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-//        print("очищено")
-//        return true
-//    }
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        print("хотите убрать клавиатуру")
-//        if textField == myTextField{
-//            self.myTextField.resignFirstResponder()
-//        }
-//        return true
-//    }
-//
     // MARK: - Notification
-    @objc func textFieldTextDidChange(ncParam: NSNotification){
-        print(ncParam)
+    //этот метод нужен чтобы двигать редактируемый элемент вслед за всплывающей клавиатурой
+    @objc func updateTextView(param: NSNotification){
+        let userInfo = param.userInfo
+        
+        //получаем координаты прямоугольника рамки клавиатуры
+        let getKeyboardRect = (userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        //конвертируем во view
+        let keyboardFrame = self.view.convert(getKeyboardRect, to: view.window)
+        
+        //если клавиатура прячется
+        if param.name == UIResponder.keyboardWillHideNotification{
+            //если приходит уведомление о закрывающейся клаве, то отменяем смещение(inset)
+            myTextView.contentInset = UIEdgeInsets.zero
+        }else{ // если клавиатура появляется
+            //смещаем редактируемый элемент
+            myTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+            //смещаем также и начало индикатора прокрутки
+            myTextView.scrollIndicatorInsets = myTextView.contentInset
+        }
+        //прокручиваем получателя(события?) до тех пор, пока текст в указанном диапазоне не будет виден
+        myTextView.scrollRangeToVisible(myTextView.selectedRange)
+        
     }
     
     /*
