@@ -26,6 +26,7 @@ class ThirdViewController: UIViewController {
         myButton.setTitle("i am pressed", for: .highlighted)
         myButton.addTarget(self, action: #selector(buttonIsPressed(sender:)), for: .touchDown)
         myButton.addTarget(self, action: #selector(buttonIsTapped(sender:)), for: .touchUpInside)
+        myButton.addTarget(self, action: #selector(toFourthVC(sender:)), for: .touchUpInside)
         self.view.addSubview(myButton)
         
         
@@ -38,6 +39,12 @@ class ThirdViewController: UIViewController {
     @objc func buttonIsTapped(sender: UIButton){
         print("button is tapped")
     }
+    
+    @objc func toFourthVC(sender: UIButton){
+        let fourthVC = FourthViewController()
+        self.navigationController?.pushViewController(fourthVC, animated: false)
+    }
+    
     
 
     /*
