@@ -9,11 +9,34 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
+    var myButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Third VC"
-        self.view.backgroundColor = .white
+        self.navigationItem.title = "Third VC"
+        self.view.backgroundColor = .purple
+        var tabBarItem = UITabBarItem()
+        tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2 )
+        self.tabBarItem = tabBarItem
+        
+        myButton = UIButton(type: .roundedRect)
+        myButton.frame = CGRect(x: 110, y: 200, width: 100, height: 44)
+        myButton.setTitle("press me", for: .normal)
+        myButton.setTitle("i am pressed", for: .highlighted)
+        myButton.addTarget(self, action: #selector(buttonIsPressed(sender:)), for: .touchDown)
+        myButton.addTarget(self, action: #selector(buttonIsTapped(sender:)), for: .touchUpInside)
+        self.view.addSubview(myButton)
+        
+        
+    }
+    
+    @objc func buttonIsPressed(sender: UIButton){
+        print("button is pressed")
+    }
+    
+    @objc func buttonIsTapped(sender: UIButton){
+        print("button is tapped")
     }
     
 

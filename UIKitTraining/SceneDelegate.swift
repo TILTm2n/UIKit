@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let firstVC = ViewController()
         let secondVC = SecondViewController()
-        //let thirdVC = ThirdViewController()
+        let thirdVC = ThirdViewController()
         
         let firstNavController = UINavigationController(rootViewController: firstVC)
         firstNavController.navigationBar.backgroundColor = .yellow
@@ -23,8 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let secondNavController = UINavigationController(rootViewController: secondVC)
         secondNavController.navigationBar.backgroundColor = .green
         
+        let thirdNavController = UINavigationController(rootViewController: thirdVC)
+        thirdNavController.navigationBar.backgroundColor = .orange
+        
         let tabBarVC = UITabBarController()
-        tabBarVC.setViewControllers([firstNavController, secondNavController], animated: true)
+        tabBarVC.setViewControllers([firstNavController, secondNavController, thirdNavController], animated: true)
         tabBarVC.tabBar.backgroundColor = .white
         
         guard let winScene = (scene as? UIWindowScene) else { return }
