@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A313CC992786CD4700EE9BAF /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313CC982786CD4700EE9BAF /* FourthViewController.swift */; };
+		A313CC9B27870E7A00EE9BAF /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313CC9A27870E7A00EE9BAF /* FifthViewController.swift */; };
 		A33A79172782EB6E007DF0A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A79162782EB6E007DF0A9 /* AppDelegate.swift */; };
 		A33A79192782EB6E007DF0A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A79182782EB6E007DF0A9 /* SceneDelegate.swift */; };
 		A33A791B2782EB6E007DF0A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A791A2782EB6E007DF0A9 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		A313CC982786CD4700EE9BAF /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		A313CC9A27870E7A00EE9BAF /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		A33A79132782EB6E007DF0A9 /* UIKitTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33A79162782EB6E007DF0A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A33A79182782EB6E007DF0A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				A33A791A2782EB6E007DF0A9 /* ViewController.swift */,
 				A3CE26212784A6FF0019EF18 /* ThirdViewController.swift */,
 				A313CC982786CD4700EE9BAF /* FourthViewController.swift */,
+				A313CC9A27870E7A00EE9BAF /* FifthViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				A33A791B2782EB6E007DF0A9 /* ViewController.swift in Sources */,
 				A33A79172782EB6E007DF0A9 /* AppDelegate.swift in Sources */,
 				A313CC992786CD4700EE9BAF /* FourthViewController.swift in Sources */,
+				A313CC9B27870E7A00EE9BAF /* FifthViewController.swift in Sources */,
 				A3CE261F27845D960019EF18 /* SecondViewController.swift in Sources */,
 				A3CE26222784A6FF0019EF18 /* ThirdViewController.swift in Sources */,
 				A33A79192782EB6E007DF0A9 /* SceneDelegate.swift in Sources */,

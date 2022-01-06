@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     let label = UILabel()
+    var myButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +38,21 @@ class ViewController: UIViewController {
         label.shadowOffset = CGSize(width: 2, height: 2)
         view.addSubview(label)
         
+        myButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 40))
+        myButton.backgroundColor = .orange
+        myButton.setTitle("to fifth VC", for: .normal)
+        myButton.layer.cornerRadius = 5
+        myButton.addTarget(self, action: #selector(goToFifthVC(sender:)), for: .touchUpInside)
+        view.addSubview(myButton)
+        
+        
     }
     
     //MARK: - Part1
     @objc
-    func performDisplaySecondVC(sender: Any){
-        
+    func goToFifthVC(sender: UIButton){
+        let fifthVC = FifthViewController()
+        self.navigationController?.pushViewController(fifthVC, animated: false)
     }
     
     
