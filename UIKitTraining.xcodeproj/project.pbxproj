@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		A313CC992786CD4700EE9BAF /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313CC982786CD4700EE9BAF /* FourthViewController.swift */; };
 		A313CC9B27870E7A00EE9BAF /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313CC9A27870E7A00EE9BAF /* FifthViewController.swift */; };
+		A313CC9D278744A600EE9BAF /* SixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313CC9C278744A600EE9BAF /* SixthViewController.swift */; };
+		A313CCA027874F0A00EE9BAF /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313CC9F27874F0A00EE9BAF /* MyPageViewController.swift */; };
+		A313CCA22787520500EE9BAF /* СarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313CCA12787520500EE9BAF /* СarViewController.swift */; };
+		A313CCA4278755A300EE9BAF /* CarsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313CCA3278755A300EE9BAF /* CarsHelper.swift */; };
 		A33A79172782EB6E007DF0A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A79162782EB6E007DF0A9 /* AppDelegate.swift */; };
 		A33A79192782EB6E007DF0A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A79182782EB6E007DF0A9 /* SceneDelegate.swift */; };
 		A33A791B2782EB6E007DF0A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A791A2782EB6E007DF0A9 /* ViewController.swift */; };
@@ -24,6 +28,10 @@
 /* Begin PBXFileReference section */
 		A313CC982786CD4700EE9BAF /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		A313CC9A27870E7A00EE9BAF /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
+		A313CC9C278744A600EE9BAF /* SixthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthViewController.swift; sourceTree = "<group>"; };
+		A313CC9F27874F0A00EE9BAF /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		A313CCA12787520500EE9BAF /* СarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СarViewController.swift"; sourceTree = "<group>"; };
+		A313CCA3278755A300EE9BAF /* CarsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsHelper.swift; sourceTree = "<group>"; };
 		A33A79132782EB6E007DF0A9 /* UIKitTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33A79162782EB6E007DF0A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A33A79182782EB6E007DF0A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A313CCA5278755AB00EE9BAF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A313CCA3278755A300EE9BAF /* CarsHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A33A790A2782EB6E007DF0A9 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +84,7 @@
 		A33A79152782EB6E007DF0A9 /* UIKitTraining */ = {
 			isa = PBXGroup;
 			children = (
+				A313CCA5278755AB00EE9BAF /* Helpers */,
 				A3CE262027845DA10019EF18 /* Controllers */,
 				A33A79162782EB6E007DF0A9 /* AppDelegate.swift */,
 				A33A79182782EB6E007DF0A9 /* SceneDelegate.swift */,
@@ -89,6 +106,9 @@
 				A3CE26212784A6FF0019EF18 /* ThirdViewController.swift */,
 				A313CC982786CD4700EE9BAF /* FourthViewController.swift */,
 				A313CC9A27870E7A00EE9BAF /* FifthViewController.swift */,
+				A313CC9C278744A600EE9BAF /* SixthViewController.swift */,
+				A313CC9F27874F0A00EE9BAF /* MyPageViewController.swift */,
+				A313CCA12787520500EE9BAF /* СarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,9 +186,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A33A79212782EB6E007DF0A9 /* UIKitTraining.xcdatamodeld in Sources */,
+				A313CCA4278755A300EE9BAF /* CarsHelper.swift in Sources */,
+				A313CC9D278744A600EE9BAF /* SixthViewController.swift in Sources */,
+				A313CCA22787520500EE9BAF /* СarViewController.swift in Sources */,
 				A33A791B2782EB6E007DF0A9 /* ViewController.swift in Sources */,
 				A33A79172782EB6E007DF0A9 /* AppDelegate.swift in Sources */,
 				A313CC992786CD4700EE9BAF /* FourthViewController.swift in Sources */,
+				A313CCA027874F0A00EE9BAF /* MyPageViewController.swift in Sources */,
 				A313CC9B27870E7A00EE9BAF /* FifthViewController.swift in Sources */,
 				A3CE261F27845D960019EF18 /* SecondViewController.swift in Sources */,
 				A3CE26222784A6FF0019EF18 /* ThirdViewController.swift in Sources */,

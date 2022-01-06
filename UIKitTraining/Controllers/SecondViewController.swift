@@ -10,6 +10,7 @@ import UIKit
 class SecondViewController: UIViewController{
     
     var myTextView = UITextView()
+    var myButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,20 @@ class SecondViewController: UIViewController{
         
         self.view.addSubview(myTextView)
         
+        createButton(myButton)
         
+        
+    }
+    
+    func createButton(_ button: UIButton){
+        button.frame = CGRect(x: view.bounds.size.width/4,
+                              y: view.center.y + 200,
+                              width: 150, height: 50)
+        button.setTitle("to sixVC", for: .normal)
+        button.setTitleColor(.purple, for: .normal)
+        button.backgroundColor = .orange
+        button.addTarget(self, action: #selector(goToSixthVC), for: .touchUpInside)
+        view.addSubview(button)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -51,6 +65,12 @@ class SecondViewController: UIViewController{
 //        super.viewDidAppear(true)
 //        self.perform(#selector(goBack), with: nil, afterDelay: 3.0)
 //    }
+    
+    @objc
+    func goToSixthVC(){
+        let sixthVC = SixthViewController()
+        navigationController?.pushViewController(sixthVC, animated: false)
+    }
     
     @objc
     func goBack(){

@@ -32,6 +32,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let winScene = (scene as? UIWindowScene) else { return }
         
+        //еще один вариант создания UIWindow
+        //window = UIWindow(frame: UIScene.main.bounds)
+        
         self.window = UIWindow(windowScene: winScene)
         self.window?.rootViewController = tabBarVC
         self.window?.makeKeyAndVisible()
