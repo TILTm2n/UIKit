@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     
     let label = UILabel()
     var myButton = UIButton()
+    var toSevenVCButton = UIButton()
+    var toEightVCButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +40,26 @@ class ViewController: UIViewController {
         label.shadowOffset = CGSize(width: 2, height: 2)
         view.addSubview(label)
         
-        myButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 40))
+        myButton = UIButton(frame: CGRect(x: 100, y: 100, width: 150, height: 40))
         myButton.backgroundColor = .orange
         myButton.setTitle("to fifth VC", for: .normal)
         myButton.layer.cornerRadius = 5
         myButton.addTarget(self, action: #selector(goToFifthVC(sender:)), for: .touchUpInside)
         view.addSubview(myButton)
+        
+        toSevenVCButton = UIButton(frame: CGRect(x: 100, y: 205, width: 150, height: 40))
+        toSevenVCButton.backgroundColor = .red
+        toSevenVCButton.setTitle("to seventh VC", for: .normal)
+        toSevenVCButton.layer.cornerRadius = 5
+        toSevenVCButton.addTarget(self, action: #selector(goToSeventhVC(sender:)), for: .touchUpInside)
+        view.addSubview(toSevenVCButton)
+        
+        toEightVCButton = UIButton(frame: CGRect(x: 100, y: 305, width: 150, height: 40))
+        toEightVCButton.backgroundColor = .red
+        toEightVCButton.setTitle("to eighth VC", for: .normal)
+        toEightVCButton.layer.cornerRadius = 5
+        toEightVCButton.addTarget(self, action: #selector(goToEighthVC(sender:)), for: .touchUpInside)
+        view.addSubview(toEightVCButton)
         
         
     }
@@ -55,6 +71,17 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(fifthVC, animated: false)
     }
     
+    @objc
+    func goToSeventhVC(sender: UIButton){
+        let seventhVC = SeventhViewController()
+        self.navigationController?.pushViewController(seventhVC, animated: false)
+    }
+    
+    @objc
+    func goToEighthVC(sender: UIButton){
+        let eighthVC = EightViewController()
+        self.navigationController?.pushViewController(eighthVC, animated: false)
+    }
     
     
     

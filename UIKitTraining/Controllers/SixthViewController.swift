@@ -31,7 +31,7 @@ class SixthViewController: UIViewController {
         button.frame = CGRect(x: view.bounds.size.width/4,
                               y: view.center.y + 200,
                               width: 150, height: 50)
-        button.setTitle("to sixVC", for: .normal)
+        button.setTitle("to pageVC", for: .normal)
         button.setTitleColor(.purple, for: .normal)
         button.backgroundColor = .systemGreen
         button.addTarget(self, action: #selector(goToSixthVC), for: .touchUpInside)
