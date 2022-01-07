@@ -10,6 +10,8 @@ import UIKit
 class ThirdViewController: UIViewController {
 
     var myButton = UIButton()
+    var nineVCButton = UIButton()
+    var TenVCButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,33 @@ class ThirdViewController: UIViewController {
         myButton.addTarget(self, action: #selector(toFourthVC(sender:)), for: .touchUpInside)
         self.view.addSubview(myButton)
         
+        nineVCButton = UIButton(type: .roundedRect)
+        nineVCButton.frame = CGRect(x: 110, y: 300, width: 100, height: 44)
+        nineVCButton.setTitle("to nine VC", for: .normal)
+        nineVCButton.backgroundColor = .red
+        nineVCButton.addTarget(self, action: #selector(goToNinethVC), for: .touchUpInside)
+        self.view.addSubview(nineVCButton)
         
+        TenVCButton = UIButton(type: .roundedRect)
+        TenVCButton.frame = CGRect(x: 110, y: 400, width: 100, height: 44)
+        TenVCButton.setTitle("to ten VC", for: .normal)
+        TenVCButton.backgroundColor = .red
+        TenVCButton.addTarget(self, action: #selector(goToTenthVC), for: .touchUpInside)
+        self.view.addSubview(TenVCButton)
+        
+        
+    }
+    
+    @objc
+    func goToTenthVC(){
+        let tenVC = TenthViewController()
+        navigationController?.pushViewController(tenVC, animated: false)
+    }
+    
+    @objc
+    func goToNinethVC(){
+        let nineVC = NinethViewController()
+        navigationController?.pushViewController(nineVC, animated: false)
     }
     
     @objc func buttonIsPressed(sender: UIButton){
@@ -45,16 +73,5 @@ class ThirdViewController: UIViewController {
         self.navigationController?.pushViewController(fourthVC, animated: false)
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
