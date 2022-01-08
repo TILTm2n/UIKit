@@ -10,17 +10,18 @@ import UIKit
 class ThirdViewController: UIViewController {
 
     var myButton = UIButton()
-    var nineVCButton = UIButton()
     var TenVCButton = UIButton()
+    var nineVCButton = UIButton()
     var elevenVCButton = UIButton()
     var twelvthVCButton = UIButton()
+    var thirteenVCButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "Third VC"
-        
         self.view.backgroundColor = .purple
+        
         var tabBarItem = UITabBarItem()
         tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2 )
         self.tabBarItem = tabBarItem
@@ -62,7 +63,20 @@ class ThirdViewController: UIViewController {
         twelvthVCButton.addTarget(self, action: #selector(goToTwelveVC), for: .touchUpInside)
         self.view.addSubview(twelvthVCButton)
         
+        thirteenVCButton = UIButton(type: .roundedRect)
+        thirteenVCButton.frame = CGRect(x: 110, y: 550, width: 100, height: 44)
+        thirteenVCButton.setTitle("to thirteen VC", for: .normal)
+        thirteenVCButton.backgroundColor = .red
+        thirteenVCButton.addTarget(self, action: #selector(goToThirteenVC), for: .touchUpInside)
+        self.view.addSubview(thirteenVCButton)
         
+        
+    }
+    
+    @objc
+    func goToThirteenVC(){
+        let thirteenVC = ThirteenViewController()
+        navigationController?.pushViewController(thirteenVC, animated: true)
     }
     
     @objc

@@ -98,7 +98,6 @@ class TwelvthViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             self.array.remove(at: indexPath.row)
-            
             //использовать при собственной вставке
             //tableView.deleteRows(at: [indexPath], with: .left)
             tableView.reloadData()
