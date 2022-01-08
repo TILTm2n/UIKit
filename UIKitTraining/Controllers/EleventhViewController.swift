@@ -41,7 +41,7 @@ class EleventhViewController: UIViewController {
 
         self.navigationItem.title = "Eleven VC"
         self.view.backgroundColor = .link
-        self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = true
         
         view.addSubview(viewRed)
         view.addSubview(viewBlue)
@@ -50,6 +50,15 @@ class EleventhViewController: UIViewController {
         createViewRedConstraint()
         createViewBlueConstraint()
         createViewGreenConstraint()
+        
+        
+        //пытался переопределить действие back button, так чтобы tabbarcontroller снова появлялся
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close,
+//                                                                target: self,
+//                                                                action: #selector(presentTabBar(barButton:)))
+        
+        
+        
         
         //язык форматирования
 //        let viewVFL = ["viewRed": viewRed, "viewBlue": viewBlue]
@@ -70,6 +79,24 @@ class EleventhViewController: UIViewController {
         
         //createView1Constraints()
         //createView2Constraints()
+    }
+    
+    //позволяет вернуть tabbarcontroller при переходе из этого контроллера
+    override func viewWillDisappear(_ animated: Bool) {
+        if self.isMovingFromParent{
+            super.tabBarController?.tabBar.isHidden = false
+        }
+    }
+    
+    
+    @objc
+    func presentTabBar(barButton: UIBarButtonItem){
+        print("disappear")
+        super.tabBarController?.tabBar.isHidden = false
+        var currentViewControllers = self.navigationController?.viewControllers
+        currentViewControllers?.removeLast()
+        guard let newControllers = currentViewControllers else { return }
+        self.navigationController?.viewControllers = newControllers
     }
     
     //ограничения с помощью якорей

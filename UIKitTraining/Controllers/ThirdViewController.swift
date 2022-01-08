@@ -13,6 +13,7 @@ class ThirdViewController: UIViewController {
     var nineVCButton = UIButton()
     var TenVCButton = UIButton()
     var elevenVCButton = UIButton()
+    var twelvthVCButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +55,26 @@ class ThirdViewController: UIViewController {
         elevenVCButton.addTarget(self, action: #selector(goToEleventhVC), for: .touchUpInside)
         self.view.addSubview(elevenVCButton)
         
+        twelvthVCButton = UIButton(type: .roundedRect)
+        twelvthVCButton.frame = CGRect(x: 110, y: 500, width: 100, height: 44)
+        twelvthVCButton.setTitle("to twelve VC", for: .normal)
+        twelvthVCButton.backgroundColor = .red
+        twelvthVCButton.addTarget(self, action: #selector(goToTwelveVC), for: .touchUpInside)
+        self.view.addSubview(twelvthVCButton)
         
+        
+    }
+    
+    @objc
+    func goToTwelveVC(){
+        let twelvthVC = TwelvthViewController()
+        navigationController?.pushViewController(twelvthVC, animated: true)
     }
     
     @objc
     func goToEleventhVC(){
         let eleventhVC = EleventhViewController()
-        navigationController?.pushViewController(eleventhVC, animated: false)
+        navigationController?.pushViewController(eleventhVC, animated: true)
     }
     
     @objc
